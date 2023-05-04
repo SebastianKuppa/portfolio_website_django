@@ -3,16 +3,16 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('<h2>HOME</h2>')
+    return render(request, 'home.html')
 
 
 def post(request):
-    return HttpResponse('<h2>POST</h2>')
+    return render(request, 'post.html')
 
 
 def posts(request):
-    return HttpResponse('<h2>POSTS</h2>')
+    return render(request, 'posts.html')
 
 
 def profile(request):
-    return HttpResponse('<h2>PROFILE</h2>')
+    return render(request, 'profile.html')
