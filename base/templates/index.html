@@ -81,21 +81,26 @@
 
 					<h4>TOP EXPERTISE</h4>
 
-					<p>Fullstack developer with primary focus on Django + React: <a target="_blank" href="resume.pdf">Download Resume</a></p>
+					<p>Data Engineer with Experience in Machine Learning and Robotics:
+						<br>
+						<a target="_blank" href="{% static 'CV_Kuppa_2023_eng.pdf' %}">Download Resume (ENGLISH)</a>
+						<br>
+						<a target="_blank" href="{% static 'CV_Kuppa_2023_deutsch.pdf' %}">Download Resume (DEUTSCH)</a>
+					</p>
 
 					<div id="skills">
 						<ul>
 							<li>Python</li>
+							<li>Pytorch, Tensorflow</li>
+							<li>Robot Operating System</li>
 							<li>Django</li>
 							<li>JavaScript</li>
-							<li>React</li>
-							<li>Postgres</li>
 						</ul>
 
 						<ul>
-							<li>Google Maps API</li>
-							<li>JS Charts</li>
-							<li>AWS (RDS/S3)</li>
+							<li>GitLab API</li>
+							<li>Numpy,Pandas,SciPy</li>
+							<li>OpenCV</li>
 							<li>Heroku</li>
 							<li>HTML/CSS</li>
 						</ul>
@@ -106,12 +111,15 @@
 
 				
 				<div class="social-links">
-					<img id="social_img" src="{{ STATIC_URL }}images/follow.jpg">
-					<h3>Find me on Twitter & Youtube</h3>
+					<!-- <img id="social_img" src="{{ STATIC_URL }}images/follow.jpg"> -->
 
-					<a target="_blank" href="https://www.youtube.com/c/dennisivy">YouTube: @DennisIvy</a>
-					<br>
-					<a target="_blank" href="https://twitter.com/dennisivy11">Twitter: @DennisIvy11</a>
+					<h3>Find me on GitHub</h3>
+
+					<a target="_blank" href="https://github.com/SebastianKuppa">Github: @SebastianKuppa</a>
+
+					<h3>Find me on LinkedIn</h3>
+
+					<a target="_blank" href="https://www.linkedin.com/in/sebastian-kuppa-946909161/">LinkedIn: @SebastianKuppa</a>
 				</div>
 			</div>
 
@@ -185,7 +193,9 @@
 			</form>
 		</div>
 	</section> 
-
-	<!-- <script type="text/javascript" src="script.js"></script> -->
+	<script type="text/javascript">
+		let static = "{% static 'css' %}
+	</script>
+	<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
