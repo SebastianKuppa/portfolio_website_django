@@ -10,7 +10,16 @@ def post(request):
 
 
 def posts(request):
-    return render(request, 'posts.html')
+    posts = [
+        {'headline': 'test',
+         'subheadline': 'context'},
+        {'headline': 'test',
+         'subheadline': 'context'},
+        {'headline': 'test',
+         'subheadline': 'context'},
+    ]
+    context = {'posts': posts}
+    return render(request, 'posts.html', context)
 
 
 def profile(request):
