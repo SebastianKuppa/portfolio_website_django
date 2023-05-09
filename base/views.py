@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from .models import Post
 
 def home(request):
     return render(request, 'index.html')
@@ -10,14 +11,7 @@ def post(request):
 
 
 def posts(request):
-    posts = [
-        {'headline': 'test',
-         'subheadline': 'context'},
-        {'headline': 'test',
-         'subheadline': 'context'},
-        {'headline': 'test',
-         'subheadline': 'context'},
-    ]
+    posts = Post.objects.all()
     context = {'posts': posts}
     return render(request, 'posts.html', context)
 
