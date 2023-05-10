@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .models import Post
+from .forms import PostForm
 
 
 def home(request):
@@ -23,3 +24,11 @@ def posts(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
+
+# CRUD Views
+def createPost(request):
+    form = PostForm()
+    context = {'form': form}
+    return render(request, 'post_form.html', context)
+
