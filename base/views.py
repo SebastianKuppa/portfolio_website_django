@@ -9,8 +9,10 @@ def home(request):
     return render(request, 'index.html', context)
 
 
-def post(request):
-    return render(request, 'post.html')
+def post(request, pk):
+    post = Post.objects.get(id=pk)
+    context = {'post': post}
+    return render(request, 'post.html', context)
 
 
 def posts(request):

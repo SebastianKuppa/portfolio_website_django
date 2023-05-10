@@ -3,10 +3,11 @@
 {% block content %}
 
 <div class="main-container">
-	<h1>Post Title</h1>
-	<img src="{% static 'images/kate.jpg' %}">
+	<!-- <img src="{% static 'images/kate.jpg' %}"> -->
+	<h1>{{post.headline}}</h1>
+	<h4>{{post.subheadline}}</h4>
 	<p>
-		Lorem ipsum
+		{{post.body}}
 	</p>
 </div>
 
