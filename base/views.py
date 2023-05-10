@@ -2,8 +2,11 @@ from django.shortcuts import render
 
 from .models import Post
 
+
 def home(request):
-    return render(request, 'index.html')
+    posts = Post.objects.filter(active=True, featured=True)[0:3]
+    context = {'posts': posts}
+    return render(request, 'index.html', context)
 
 
 def post(request):
@@ -11,7 +14,7 @@ def post(request):
 
 
 def posts(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(active=True)
     context = {'posts': posts}
     return render(request, 'posts.html', context)
 
