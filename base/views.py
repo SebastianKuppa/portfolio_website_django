@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Post
 from .forms import PostForm
+from .filters import PostFilter
 
 
 def home(request):
@@ -19,7 +21,9 @@ def post(request, pk):
 
 def posts(request):
     posts = Post.objects.filter(active=True)
-    context = {'posts': posts}
+    filter = PostFilter(request.GET, queryset=posts)
+    posts = filter.qs
+    context = {'posts': posts, 'myFilter': filter}
     return render(request, 'posts.html', context)
 
 
