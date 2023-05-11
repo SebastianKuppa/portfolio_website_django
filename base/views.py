@@ -56,10 +56,10 @@ def updatePost(request, pk):
 
 @login_required(login_url='home')
 def deletePost(request, pk):
-    post = Post(id=pk)
+    post = Post.objects.get(id=pk)
     if request.method == 'POST':
         post.delete()
         return redirect('posts')
-    context = {'item': post}
+    context = {'post': post}
     return render(request, 'delete.html', context)
 
