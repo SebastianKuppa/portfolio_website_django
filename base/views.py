@@ -23,6 +23,17 @@ def posts(request):
     posts = Post.objects.filter(active=True)
     filter = PostFilter(request.GET, queryset=posts)
     posts = filter.qs
+
+    page = request.GET.get('page')
+    paginator = Paginator(posts, 3)
+
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
     context = {'posts': posts, 'myFilter': filter}
     return render(request, 'posts.html', context)
 
