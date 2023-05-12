@@ -47,7 +47,7 @@
         {% for post in posts %}
         <div>
             <div class="post">
-                <img class="thumbnail" src={{post.thumbnail.url}}>
+                <a href="{% url 'post' post.id %}"><img class="thumbnail" src={{post.thumbnail.url}}></a>
 
                 <div class="post-preview">
                     <h6 class="post-title">{{post.headline}}</h6>
