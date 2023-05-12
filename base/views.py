@@ -12,6 +12,7 @@ from .forms import PostForm
 from .filters import PostFilter
 
 
+
 def home(request):
     posts = Post.objects.filter(active=True, featured=True)[0:3]
     context = {'posts': posts}
@@ -85,12 +86,19 @@ def deletePost(request, pk):
 
 
 def sendEmail(request):
-    template = render_to_string('email_template.html', {
-        'name': request.POST['name'],
-        'email': request.POST['email'],
-        'message': request.POST['message'],
-    })
-    email = EmailMessage(
-        request.POST['subject'],
-    )
-    return HttpResponse('Email was send.')
+    if request.method == 'POST':
+        template = render_to_string('email_template.html', {
+            'name': request.POST['name'],
+            'email': request.POST['email'],
+            'message': request.POST['message'],
+        })
+        email = EmailMessage(
+            request.POST['subject'],
+            template,
+            settings.EMAIL_HOST_USER,
+            ['sebastian.kuppa@web.de'],
+        )
+        email.fail_silently = False
+        email.send()
+
+    return render(request, 'email_sent.html')

@@ -139,9 +139,9 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django_imap_backend.ImapBackend'
-EMAIL_HOST = 'imap.web.de'
-EMAIL_PORT = 993
-EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'sebastian.kuppa'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.web.de'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sebastian.kuppa@web.de'
 EMAIL_HOST_PASSWORD = keys.email_pw
