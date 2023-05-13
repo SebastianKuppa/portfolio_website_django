@@ -135,11 +135,11 @@
 				{% for post in posts %}
 				<div>
 					<div class="post">
-						<img class="thumbnail" src={{post.thumbnail.url}}>
+						<p href="{% url 'post' post.slug %}"><img class="thumbnail" src={{post.thumbnail.url}}></p>
 						<div class="post-preview">
 							<h6 class="post-title">{{post.headline}}</h6>
 							<p class="post-intro">{{post.subheadline}}</p>
-							<a href="{% url 'post' post.id %}">Read More</a>
+							<a href="{% url 'post' post.slug %}">Read More</a>
 						</div>
 					</div>
 				</div>
